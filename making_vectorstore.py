@@ -28,7 +28,7 @@ def internship_to_string(internship):
 
 if __name__ == "__main__":
 
-    emb = CustomGoogleGenerativeAIEmbeddings(model='models/gemini-embedding-001', google_api_key='AIzaSyAgTTDHqbdm5bymFwHO7jqDKm3hg4xhRT0')
+    emb = CustomGoogleGenerativeAIEmbeddings(model='models/gemini-embedding-001', google_api_key=' ')
 
 
     vector_store = Chroma(
@@ -43,5 +43,6 @@ if __name__ == "__main__":
     docs = [Document(page_content=internship_to_string(internship), metadata={'job_id': internship['job_id'], 'stipend':internship['stipend_num'], 'location': internship['location']}) for internship in internships]
 
     vector_store.add_documents(docs, uuids=uuids)
+
 
     # print(internship_to_string(internships[0]))
